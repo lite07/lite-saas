@@ -41,7 +41,10 @@ func CreateUser(c *gin.Context) {
 
 	// Create user
 	user := models.User{Email: input.Email, PasswordHash: utils.HashSha256String(input.Password)}
-	models.DB.Create(&user)
+	if err := models.DB.Create(&user).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
 	c.JSON(http.StatusCreated, gin.H{"data": user})
 }
