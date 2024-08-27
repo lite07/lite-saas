@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/lite07/lite-saas/src/models"
-	"github.com/lite07/lite-saas/src/routers"
+	"github.com/lite07/lite-saas/internal/models"
+	"github.com/lite07/lite-saas/internal/routers"
 )
 
 func main() {

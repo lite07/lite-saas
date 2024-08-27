@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/lite07/lite-saas/controllers"
+	"github.com/lite07/lite-saas/internal/controllers"
 )
 
 func RegisterUsersRoute(r *gin.Engine) {
