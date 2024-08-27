@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lite07/lite-saas/models"
-	"github.com/lite07/lite-saas/requests"
-	"github.com/lite07/lite-saas/utils"
+	"github.com/lite07/lite-saas/internal/models"
+	"github.com/lite07/lite-saas/internal/requests"
+	"github.com/lite07/lite-saas/internal/utils"
 )
 
 // GET /users

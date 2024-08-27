@@ -10,7 +10,6 @@ import (
 var DB *gorm.DB
 
 func ConnectDatabase() {
-
 	database, err := gorm.Open(sqlite.Open("development.db"), &gorm.Config{})
 
 	if err != nil {
@@ -18,6 +17,10 @@ func ConnectDatabase() {
 	}
 
 	err = database.AutoMigrate(&User{})
+	if err != nil {
+		return
+	}
+	err = database.AutoMigrate(&Session{})
 	if err != nil {
 		return
 	}
