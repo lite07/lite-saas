@@ -14,4 +14,5 @@ func RegisterUsersRoute(r *gin.Engine) {
 
 func RegisterSessionsRoute(r *gin.Engine) {
 	r.POST("api/sessions", controllers.CreateSession)
+	r.POST("api/sessions/invalidate", controllers.InvalidateSession)
 }
