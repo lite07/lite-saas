@@ -11,3 +11,7 @@ func RegisterUsersRoute(r *gin.Engine) {
 	r.DELETE("/api/users/:id", controllers.DeleteUser)
 	r.POST("/api/users", controllers.CreateUser)
 }
+
+func RegisterSessionsRoute(r *gin.Engine) {
+	r.POST("api/sessions", controllers.CreateSession)
+}
