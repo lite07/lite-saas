@@ -16,3 +16,9 @@ func RegisterSessionsRoute(r *gin.Engine) {
 	r.POST("api/sessions", controllers.CreateSession)
 	r.POST("api/sessions/invalidate", controllers.InvalidateSession)
 }
+
+func RegisterRolesRoute(r *gin.Engine) {
+	r.GET("api/roles", controllers.GetRoles)
+	r.POST("api/roles", controllers.CreateRole)
+	r.DELETE("api/roles/:id", controllers.DeleteRole)
+}

@@ -23,6 +23,14 @@ func ConnectDatabase() {
 	if err != nil {
 		return
 	}
+	err = database.AutoMigrate(&models.Role{})
+	if err != nil {
+		return
+	}
+	err = database.AutoMigrate(&models.UserRole{})
+	if err != nil {
+		return
+	}
 
 	DB = database
 }

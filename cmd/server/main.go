@@ -13,6 +13,7 @@ func main() {
 
 	routers.RegisterUsersRoute(r)
 	routers.RegisterSessionsRoute(r)
+	routers.RegisterRolesRoute(r)
 
 	r.Run()
 }

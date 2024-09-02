@@ -36,7 +36,7 @@ func GetUser(c *gin.Context) {
 // Create new user
 func CreateUser(c *gin.Context) {
 	// Validate input
-	var input requests.CreateUserRequest
+	var input requests.CreateUser
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": strings.Split(err.Error(), "\n")})
 		return
