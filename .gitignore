@@ -26,3 +26,6 @@
 
 # Temporary directory
 tmp
+
+# Database seeds
+internal/database/seeds/*.csv
