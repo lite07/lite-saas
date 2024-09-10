@@ -13,6 +13,7 @@ import (
 func SeedDatabase() {
 	seedTable("roles")
 	seedTable("users")
+	seedTable("user_roles")
 }
 
 func seedTable(tableName string) {
@@ -58,6 +59,30 @@ func createRecords(tableName string, records [][]string) {
 			}
 
 			DB.Create(&role)
+		}
+	case "user_roles":
+		for _, record := range records {
+			roleName := record[0]
+			userEmail := record[1]
+
+			var role models.Role
+			if err := DB.Find(&role).Where("Name = ?", roleName).Error; err != nil {
+				fmt.Printf("Unable to find role with name %s", roleName)
+				continue
+			}
+
+			var user models.User
+			if err := DB.Find(&user).Where("Email = ?", userEmail).Error; err != nil {
+				fmt.Printf("Unable to user with email %s", userEmail)
+				continue
+			}
+
+			userRole := models.UserRole{
+				UserID: user.ID,
+				RoleID: role.ID,
+			}
+
+			DB.Create(&userRole)
 		}
 	}
 }
