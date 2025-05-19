@@ -37,9 +37,7 @@ func CreateUserSession(request requests.CreateUserSession) (dto.SessionDto, erro
 	}
 
 	session := models.Session{
-		ExpiredAt: time.Now().Local().Add(time.Minute * time.Duration(60)),
-		UserId:    user.ID,
-		User:      user,
+		ExpiredAt: time.Now().UTC().Add(time.Minute * time.Duration(60)),
 		Token:     utils.EncryptString(string(sessionTokenJson)),
 	}
 	if err := database.DB.Create(&session).Error; err != nil {
