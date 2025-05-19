@@ -7,10 +7,10 @@ import (
 )
 
 var (
-	readUser  = []string{"Admin"}
-	writeUser = []string{"Admin"}
-	readRole  = []string{"Admin"}
-	writeRole = []string{"Admin"}
+	readUser  = []string{"Admin", "SuperAdmin"}
+	writeUser = []string{"Admin", "SuperAdmin"}
+	readRole  = []string{"Admin", "SuperAdmin"}
+	writeRole = []string{"Admin", "SuperAdmin"}
 )
 
 func RegisterUsersRoute(r *gin.Engine) {
