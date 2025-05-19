@@ -1,6 +1,6 @@
 module github.com/lite07/lite-saas
 
-go 1.20
+go 1.23
 
 require gorm.io/driver/sqlite v1.5.5
 

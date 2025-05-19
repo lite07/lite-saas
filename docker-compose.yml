@@ -1,0 +1,15 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  lite-saas:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: air         # or `go run ./cmd/app` if you don’t use hot-reload
+    tty: true
+    volumes:
+      - ./:/lite-saas       # mount your code
+      - /go/pkg/mod          # cache modules
+    ports:
+      - 3000:8080           # your app port
